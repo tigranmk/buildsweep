@@ -13,6 +13,7 @@ requires-python = ">=3.9"
 dependencies = []  # standard library only
 keywords = ["node_modules", "cleanup", "disk-space", "build-artifacts", "cli", "developer-tools"]
 classifiers = [
+    "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
