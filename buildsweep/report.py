@@ -63,7 +63,7 @@ def write_text(artifacts: Sequence[Artifact], out: IO[str], *, limit: int = 0,
         out.write("No build or dependency folders matched.\n")
     else:
         prefix_w = len(str(len(shown))) + 3 if numbered else 0
-        out.write(f"{'':{prefix_w}}{'SIZE':>10}  {'IDLE':>6}  {'TYPE':<10}  PATH\n")
+        out.write(" " * prefix_w + f"{'SIZE':>10}  {'IDLE':>6}  {'TYPE':<10}  PATH\n")
         for i, a in enumerate(shown, 1):
             prefix = f"[{i}]".rjust(prefix_w - 1) + " " if numbered else ""
             out.write(f"{prefix}{human_size(a.size):>10}  {human_age(a.age_days(now)):>6}  "

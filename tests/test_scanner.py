@@ -9,7 +9,7 @@ from helpers import TempTree
 
 class ScanTests(TempTree):
     def paths(self, result):
-        return sorted(os.path.relpath(a.path, self.tmp) for a in result.artifacts)
+        return sorted(os.path.relpath(a.path, self.tmp).replace(os.sep, "/") for a in result.artifacts)
 
     def test_finds_artifacts_across_ecosystems(self):
         self.project("web", ["package.json"], "node_modules")

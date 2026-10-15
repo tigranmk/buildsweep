@@ -59,18 +59,18 @@ class CliTests(TempTree):
 
     def test_filters_by_age_and_size(self):
         _, out, _ = run(self.tmp, "--older-than", "6m")
-        self.assertIn("old/node_modules", out)
-        self.assertNotIn("new/target", out)
+        self.assertIn(os.path.join("old", "node_modules"), out)
+        self.assertNotIn(os.path.join("new", "target"), out)
         self.assertIn("1 more did not pass", out)
         _, out, _ = run(self.tmp, "--min-size", "100k")
-        self.assertNotIn("new/target", out)
+        self.assertNotIn(os.path.join("new", "target"), out)
 
     def test_only_and_skip(self):
         _, out, _ = run(self.tmp, "--only", "rust")
-        self.assertIn("new/target", out)
+        self.assertIn(os.path.join("new", "target"), out)
         self.assertNotIn("node_modules", out)
         _, out, _ = run(self.tmp, "--skip", "rust")
-        self.assertNotIn("new/target", out)
+        self.assertNotIn(os.path.join("new", "target"), out)
 
     def test_unknown_type_is_usage_error(self):
         with self.assertRaises(SystemExit) as cm, contextlib.redirect_stderr(io.StringIO()):

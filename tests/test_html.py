@@ -2,6 +2,7 @@ import io
 import json
 import os
 import re
+import sys
 import unittest
 
 from buildsweep.html_report import write_html
@@ -23,10 +24,11 @@ class HtmlReportTests(TempTree):
         out = io.StringIO()
         write_html(scan([self.tmp]).artifacts, out, roots=[self.tmp])
         data = embedded_data(out.getvalue())
-        self.assertEqual(sorted(a["shown"] for a in data["artifacts"]),
+        self.assertEqual(sorted(a["shown"].replace(os.sep, "/") for a in data["artifacts"]),
                          ["cli/target", "web/node_modules"])
         self.assertTrue(all(a["href"].startswith("file://") for a in data["artifacts"]))
 
+    @unittest.skipIf(sys.platform == "win32", "Windows forbids < and > in file names")
     def test_hostile_folder_name_cannot_break_out(self):
         name = "x</script><img src=y onerror=alert(1)>&"
         self.project(name, ["package.json"], "node_modules")
