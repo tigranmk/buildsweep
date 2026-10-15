@@ -11,5 +11,5 @@ Python API:
 from .rules import RULES, Rule
 from .scanner import Artifact, ScanResult, scan
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __all__ = ["Artifact", "RULES", "Rule", "ScanResult", "scan", "__version__"]

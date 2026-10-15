@@ -271,7 +271,7 @@ for a in result.artifacts:          # biggest first
 
 ## Adding an ecosystem
 
-Rules live in [`buildsweep/rules.py`](buildsweep/rules.py). Each rule names the
+Rules live in [`buildsweep/rules.py`](https://github.com/tigranmk/buildsweep/blob/main/buildsweep/rules.py). Each rule names the
 folder, the marker files that must sit next to it (or inside it), and how to
 restore it:
 
@@ -320,8 +320,8 @@ unless noted.
 - [**Send2Trash**](https://github.com/arsenetar/send2trash) (BSD-3-Clause):
   optional dependency used for the Trash on Linux and Windows.
 
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for license details.
+See [THIRD_PARTY_NOTICES.md](https://github.com/tigranmk/buildsweep/blob/main/THIRD_PARTY_NOTICES.md) for license details.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](https://github.com/tigranmk/buildsweep/blob/main/LICENSE).
